@@ -25,4 +25,14 @@ attr_reader :route_number, :destination
     @passengers.delete(passenger)
   end
 
+  def empty_bus()
+    @passengers.clear()
+  end
+
+  def pick_up_from_bus_stop(bus_stop)
+   queue_to_add = bus_stop.return_the_queue()
+   @passengers.concat(queue_to_add)
+   bus_stop.bus_stop_emptied()
+  end
+
 end
